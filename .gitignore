@@ -1,0 +1,11 @@
+/target/
+/.settings
+profiles.xml
+/.idea/*
+/.idea/.*
+*.iml
+.DS_Store
+.DS_Store?
+.classpath
+.project
+/.looper.yml.swp
