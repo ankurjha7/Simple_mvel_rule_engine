@@ -57,4 +57,14 @@ public class Rule {
 
     public Rule() {
     }
+
+    @Override
+    public String toString() {
+        return "Rule{" +
+                "ruleExpression='" + ruleExpression + '\'' +
+                ", name='" + name + '\'' +
+                ", id=" + id +
+                ", priority=" + priority +
+                '}';
+    }
 }
