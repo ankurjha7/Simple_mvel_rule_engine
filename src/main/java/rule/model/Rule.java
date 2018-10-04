@@ -1,7 +1,5 @@
 package rule.model;
 
-import java.io.Serializable;
-
 /**
  * The <code>ruleengine</code> represents {description}
  * <p>
@@ -11,26 +9,52 @@ import java.io.Serializable;
  *
  * @author a0j00cq (last updated by $Author$)
  * @version $Revision$ $Date$
- * @since GIF 1.0
  */
 public class Rule {
 
-    private int inputParams;
-    private Serializable compiledRule;
+    private String ruleExpression;
+    private String name;
+    private Long id;
+    private int priority = 50;
 
-    public int getInputParams() {
-        return inputParams;
+    public String getRuleExpression() {
+        return ruleExpression;
     }
 
-    public void setInputParams(int inputParams) {
-        this.inputParams = inputParams;
+    public void setRuleExpression(String ruleExpression) {
+        this.ruleExpression = ruleExpression;
     }
 
-    public Serializable getCompiledRule() {
-        return compiledRule;
+    public String getName() {
+        return name;
     }
 
-    public void setCompiledRule(Serializable compiledRule) {
-        this.compiledRule = compiledRule;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public int getPriority() {
+        return priority;
+    }
+
+    public void setPriority(int priority) {
+        this.priority = priority;
+    }
+
+    public Rule(String ruleExpression, String name, int priority) {
+        this.ruleExpression = ruleExpression;
+        this.name = name;
+        this.priority = priority;
+    }
+
+    public Rule() {
     }
 }
