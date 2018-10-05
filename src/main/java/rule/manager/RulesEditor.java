@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import rule.dao.spi.IRuleDao;
+import rule.exception.RuleDAOException;
 import rule.model.Rule;
 import rule.util.MVELUtil;
 
@@ -44,6 +45,21 @@ public class RulesEditor {
     public void addRule(String ruleExpression,String name)
     {
         addRule(ruleExpression,DEFAULT_PRIORITY,name);
+    }
+
+
+    public void deleteAllRules()
+    {
+        try {
+            ruleLoader.getCompiledRules().keySet().forEach(key -> ruleDao.deleteRuleById(key.getId()));
+            log.info("Sucessfully deleted all rules");
+        }catch (RuleDAOException ex)
+        {
+            log.error("Failed to delete all rules");
+        }
+        finally {
+            ruleLoader.loadExistingRules();
+        }
     }
 
 

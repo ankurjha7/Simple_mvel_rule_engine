@@ -146,6 +146,24 @@ public class FileBasedRuleDaoImpl implements IRuleDao {
     @Override
     public void deleteRuleById(Long id) throws RuleDAOException {
 
+        try {
+            List<Rule> existingRules = getAllRules();
+            List<Rule> updatedRules = new ArrayList<>();
+
+            for(Rule rule : existingRules)
+            {
+                if(rule.getId() != id)
+                    updatedRules.add(rule);
+            }
+            yamlFileMapper.writeValue(ruleFile,updatedRules);
+
+        }catch (IOException ex)
+        {
+            String errorMessage = "Failed to delete rule with id  : "+ id + " error: "+ ex.getMessage();
+            log.error(errorMessage);
+            throw new RuleDAOException(errorMessage);
+        }
+
     }
 
     /**
