@@ -5,7 +5,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rule.exception.InvalidInputException;
 import rule.exception.RuleCompilationException;
-import rule.model.RuleOutput;
 
 import java.io.Serializable;
 import java.util.Map;
